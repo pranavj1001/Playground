@@ -2,7 +2,6 @@ html, body {
   height: 100%;
   width: 100%;
   margin: 0;
-  overflow: hidden;
 }
 
 textarea {
@@ -15,6 +14,7 @@ textarea {
 
 .row {
   height: 50%;
+  padding: 5px 5px 0px 5px;
 }
 
 #html, #js {
@@ -25,9 +25,8 @@ textarea {
   float: right;
 }
 
-#html, #css, #js, #output {
-  width: 49%;
+.col-0, .col-1 {
+  width: 50%;
   height: 100%;
   display: inline-block;
-  padding: 5px;
 }
