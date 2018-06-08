@@ -44,7 +44,9 @@
         const cssText = document.getElementById('cssValue').value;
         const jsText = document.getElementById('jsValue').value;
 
-        console.log(htmlText, cssText, jsText);
+        let finalCode = `<html><style>${cssText}</style><body>${htmlText}</body><script>${jsText}<\/script></html>`;
+
+        console.log(finalCode);
       };
 
     </script>
