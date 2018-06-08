@@ -1,28 +1,33 @@
 html, body {
   height: 100%;
   width: 100%;
+  margin: 0;
+  overflow: hidden;
 }
 
 textarea {
   height: 100%;
   width: 100%;
   resize: none;
+  padding: 0;
+  margin: 0;
 }
 
-.row1 {
+.row {
   height: 50%;
 }
 
-#html {
+#html, #js {
   float: left;
 }
 
-#css {
+#css, #output {
   float: right;
 }
 
-#html, #css {
-  width: 50%;
+#html, #css, #js, #output {
+  width: 49%;
   height: 100%;
   display: inline-block;
+  padding: 5px;
 }
