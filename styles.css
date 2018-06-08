@@ -1,9 +1,28 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 textarea {
   height: 100%;
   width: 100%;
   resize: none;
 }
 
+.row1 {
+  height: 50%;
+}
+
+#html {
+  float: left;
+}
+
+#css {
+  float: right;
+}
+
 #html, #css {
+  width: 50%;
+  height: 100%;
   display: inline-block;
 }
