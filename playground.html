@@ -45,11 +45,17 @@
         const jsText = document.getElementById('jsValue').value;
 
         const finalCode = `<html><style>${cssText}</style><body>${htmlText}</body><script>${jsText}<\/script></html>`;
-        let iframe = document.createElement('iframe');
-        iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(finalCode);
-        document.body.appendChild(iframe);
 
-        console.log(finalCode);
+        const check = document.querySelector('iframe');
+        if(check === null) {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(finalCode);
+          document.body.appendChild(iframe);
+        } else {
+          console.log('no');
+        }
+
+        // console.log(finalCode);
       };
 
     </script>
