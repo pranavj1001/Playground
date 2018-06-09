@@ -21,13 +21,22 @@ iframe {
   border: 1px solid #999;
   border-radius: 3px;
   padding: 5px;
-  margin-top: 15px;
 }
 
-textarea:hover, textarea:focus, iframe:hover {
-  border: 1px solid #428bca;
+button {
+  font-family: 'Ubuntu', sans-serif;
+  margin: 15px 15px 15px 5px;
   border-radius: 3px;
+  border: 1px solid #999;
+  min-width: 100px;
+  min-height: 30px;
+  font-size: 1rem;
+}
+
+textarea:hover, textarea:focus, iframe:hover, button:hover {
+  border: 1px solid #428bca;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 200ms ease-out;
 }
 
 .row {
