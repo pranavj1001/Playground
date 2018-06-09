@@ -47,16 +47,20 @@
         const finalCode = `<html><style>${cssText}</style><body>${htmlText}</body><script>${jsText}<\/script></html>`;
 
         const check = document.querySelector('iframe');
+        const parent = document.getElementById('output');
         if(check === null) {
-          const iframe = document.createElement('iframe');
-          const parent = document.getElementById('output');
-          iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(finalCode);
-          parent.appendChild(iframe);
+          createIframe(parent, finalCode);
         } else {
-
+          parent.removeChild(check);
+          createIframe(parent, finalCode);
         }
-
         // console.log(finalCode);
+      };
+
+      const createIframe = (parent, finalCode)=> {
+        const iframe = document.createElement('iframe');
+        iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(finalCode);
+        parent.appendChild(iframe);
       };
 
     </script>
