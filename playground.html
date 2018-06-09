@@ -58,10 +58,16 @@
         // console.log(finalCode);
       };
 
-      const createIframe = (parent, finalCode)=> {
+      const createIframe = (parent, finalCode) => {
         const iframe = document.createElement('iframe');
         iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(finalCode);
         parent.appendChild(iframe);
+      };
+
+      const clearInput = () => {
+        document.getElementById('htmlValue').value = '';
+        document.getElementById('cssValue').value = '';
+        document.getElementById('jsValue').value = '';
       };
 
     </script>
