@@ -31,7 +31,7 @@
         <textarea id="jsValue" placeholder="JS goes here"></textarea>
       </div>
       <div class="col-1" id="output">
-        <iframe></iframe>
+        <!-- <iframe id="output"></iframe> -->
       </div>
     </div>
 
@@ -44,7 +44,10 @@
         const cssText = document.getElementById('cssValue').value;
         const jsText = document.getElementById('jsValue').value;
 
-        let finalCode = `<html><style>${cssText}</style><body>${htmlText}</body><script>${jsText}<\/script></html>`;
+        const finalCode = `<html><style>${cssText}</style><body>${htmlText}</body><script>${jsText}<\/script></html>`;
+        let iframe = document.createElement('iframe');
+        iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(finalCode);
+        document.body.appendChild(iframe);
 
         console.log(finalCode);
       };
