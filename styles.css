@@ -8,16 +8,11 @@ textarea {
   height: 100%;
   width: 100%;
   resize: none;
-  padding: 0;
+  padding: 5px;
   margin: 0;
   border: 1px solid #999;
   border-radius: 3px;
   font-family: 'Ubuntu', sans-serif;
-}
-
-textarea:hover, textarea:focus, iframe:hover {
-  border: 1px solid #428bca;
-  border-radius: 3px;
 }
 
 iframe {
@@ -25,6 +20,13 @@ iframe {
   width: 100%;
   border: 1px solid #999;
   border-radius: 3px;
+  padding: 5px;
+}
+
+textarea:hover, textarea:focus, iframe:hover {
+  border: 1px solid #428bca;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .row {
@@ -33,8 +35,8 @@ iframe {
 }
 
 .col-0, .col-1 {
-  width: 49.8%;
-  height: 100%;
+  width: 49.5%;
+  height: 97%;
   display: inline-block;
 }
 
