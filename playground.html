@@ -49,10 +49,11 @@
         const check = document.querySelector('iframe');
         if(check === null) {
           const iframe = document.createElement('iframe');
+          const parent = document.getElementById('output');
           iframe.src = 'data:text/html;charset=utf-8,' + encodeURI(finalCode);
-          document.body.appendChild(iframe);
+          parent.appendChild(iframe);
         } else {
-          console.log('no');
+
         }
 
         // console.log(finalCode);
