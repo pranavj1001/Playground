@@ -28,6 +28,7 @@
     // logic to convert hex to rgb
     const hexToRgb = (hex) => {
       // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+      console.log(hex);
       var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
       hex = hex.replace(shorthandRegex, (m, r, g, b) => (r + r + g + g + b + b));
 
@@ -40,7 +41,20 @@
     };
 
     const calculateRGB = (hex) => {
-      console.log(hexToRgb(hex));
+      const result = hexToRgb(hex);
+      if (result !== null) {
+        if (hex.charAt(0) === '#') {
+          document.body.style.backgroundColor = `${hex}`;
+          let inputs = document.querySelectorAll("input");
+          inputs[0].style.backgroundColor = `${hex}`;
+          inputs[1].style.backgroundColor = `${hex}`;
+        } else {
+          document.body.style.backgroundColor = `#${hex}`;
+          let inputs = document.querySelectorAll("input");
+          inputs[0].style.backgroundColor = `#${hex}`;
+          inputs[1].style.backgroundColor = `#${hex}`;
+        }
+      }
     };
 
     </script>
