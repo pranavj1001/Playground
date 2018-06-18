@@ -29,31 +29,40 @@
     const hexToRgb = (hex) => {
       // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
       console.log(hex);
-      var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+      let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
       hex = hex.replace(shorthandRegex, (m, r, g, b) => (r + r + g + g + b + b));
 
-      var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
       return result ? {
-          r: parseInt(result[1], 16),
-          g: parseInt(result[2], 16),
-          b: parseInt(result[3], 16)
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
       } : null;
     };
 
     const calculateRGB = (hex) => {
       const result = hexToRgb(hex);
       if (result !== null) {
+        // set background color
+        let inputs = document.querySelectorAll("input");
+        inputs[0].style.color = '#fff';
+        inputs[1].style.color = '#fff';
+        if ((hex.toLowerCase() === '#fff') || (hex.toLowerCase() === 'fff') || (hex.toLowerCase() === 'ffffff') || (hex.toLowerCase() === '#ffffff')) {
+          inputs[0].style.color = '#333';
+          inputs[1].style.color = '#333';
+        }
         if (hex.charAt(0) === '#') {
           document.body.style.backgroundColor = `${hex}`;
-          let inputs = document.querySelectorAll("input");
           inputs[0].style.backgroundColor = `${hex}`;
           inputs[1].style.backgroundColor = `${hex}`;
         } else {
           document.body.style.backgroundColor = `#${hex}`;
-          let inputs = document.querySelectorAll("input");
           inputs[0].style.backgroundColor = `#${hex}`;
           inputs[1].style.backgroundColor = `#${hex}`;
         }
+
+        // print converted rgb result
+
       }
     };
 
