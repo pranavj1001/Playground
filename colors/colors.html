@@ -48,10 +48,14 @@
         let inputs = document.querySelectorAll('input');
         if(tinycolor(hex).isLight()) {
           inputs[0].style.color = '#555';
+          inputs[0].style.borderBottom = '1px dotted #555';
           inputs[1].style.color = '#555';
+          inputs[1].style.borderBottom = '1px dotted #555';
         } else {
           inputs[0].style.color = '#fff';
+          inputs[0].style.borderBottom = '1px dotted #fff';
           inputs[1].style.color = '#fff';
+          inputs[1].style.borderBottom = '1px dotted #fff';
         }
         if (hex.charAt(0) === '#') {
           document.body.style.backgroundColor = `${hex}`;
