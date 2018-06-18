@@ -44,27 +44,20 @@
     const calculateRGB = (hex) => {
       const result = hexToRgb(hex);
       if (result !== null) {
-        // set background color
+        // set background and text color
         let inputs = document.querySelectorAll('input');
+        if(tinycolor(hex).isLight()) {
+          inputs[0].style.color = '#555';
+          inputs[1].style.color = '#555';
+        } else {
+          inputs[0].style.color = '#fff';
+          inputs[1].style.color = '#fff';
+        }
         if (hex.charAt(0) === '#') {
-          if(tinycolor(hex).isLight()) {
-            inputs[0].style.color = '#555';
-            inputs[1].style.color = '#555';
-          } else {
-            inputs[0].style.color = '#fff';
-            inputs[1].style.color = '#fff';
-          }
           document.body.style.backgroundColor = `${hex}`;
           inputs[0].style.backgroundColor = `${hex}`;
           inputs[1].style.backgroundColor = `${hex}`;
         } else {
-          if(tinycolor(hex).isLight()) {
-            inputs[0].style.color = '#555';
-            inputs[1].style.color = '#555';
-          } else {
-            inputs[0].style.color = '#fff';
-            inputs[1].style.color = '#fff';
-          }
           document.body.style.backgroundColor = `#${hex}`;
           inputs[0].style.backgroundColor = `#${hex}`;
           inputs[1].style.backgroundColor = `#${hex}`;
