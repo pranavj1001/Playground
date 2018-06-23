@@ -43,31 +43,11 @@
     const calculateRGB = (hex) => {
       const result = hexToRgb(hex);
       if (result !== null) {
+        const rgb = `rgb(${result.r}, ${result.g}, ${result.b})`;
         // set background and text color
-        let inputs = document.querySelectorAll('input');
-        if(tinycolor(hex).isLight()) {
-          inputs[0].style.color = '#555';
-          inputs[0].style.borderBottom = '1px dotted #555';
-          inputs[1].style.color = '#555';
-          inputs[1].style.borderBottom = '1px dotted #555';
-        } else {
-          inputs[0].style.color = '#fff';
-          inputs[0].style.borderBottom = '1px dotted #fff';
-          inputs[1].style.color = '#fff';
-          inputs[1].style.borderBottom = '1px dotted #fff';
-        }
-        if (hex.charAt(0) === '#') {
-          document.body.style.backgroundColor = `${hex}`;
-          inputs[0].style.backgroundColor = `${hex}`;
-          inputs[1].style.backgroundColor = `${hex}`;
-        } else {
-          document.body.style.backgroundColor = `#${hex}`;
-          inputs[0].style.backgroundColor = `#${hex}`;
-          inputs[1].style.backgroundColor = `#${hex}`;
-        }
+        setBgAndTextColor(rgb);
 
         // print converted rgb result
-        const rgb = `rgb(${result.r}, ${result.g}, ${result.b})`;
         document.getElementById('rgbText').value = rgb;
       }
     };
@@ -90,26 +70,30 @@
 
     const calculateHex = (rgb) => {
       const result = rgbToHex(rgb);
-      // set background and text color
       if(result !== null) {
-        let inputs = document.querySelectorAll('input');
-        if(tinycolor(result.hex).isLight()) {
-          inputs[0].style.color = '#555';
-          inputs[0].style.borderBottom = '1px dotted #555';
-          inputs[1].style.color = '#555';
-          inputs[1].style.borderBottom = '1px dotted #555';
-        } else {
-          inputs[0].style.color = '#fff';
-          inputs[0].style.borderBottom = '1px dotted #fff';
-          inputs[1].style.color = '#fff';
-          inputs[1].style.borderBottom = '1px dotted #fff';
-        }
-        document.body.style.backgroundColor = result.hex;
-        inputs[0].style.backgroundColor = result.hex;
-        inputs[1].style.backgroundColor = result.hex;
+        // set background and text color
+        setBgAndTextColor(result.hex);
         // print converted hex result
         document.getElementById('hexText').value = result.hex;
       }
+    };
+
+    const setBgAndTextColor = (color) => {
+      let inputs = document.querySelectorAll('input');
+      if(tinycolor(color).isLight()) {
+        inputs[0].style.color = '#555';
+        inputs[0].style.borderBottom = '1px dotted #555';
+        inputs[1].style.color = '#555';
+        inputs[1].style.borderBottom = '1px dotted #555';
+      } else {
+        inputs[0].style.color = '#fff';
+        inputs[0].style.borderBottom = '1px dotted #fff';
+        inputs[1].style.color = '#fff';
+        inputs[1].style.borderBottom = '1px dotted #fff';
+      }
+      document.body.style.backgroundColor = color;
+      inputs[0].style.backgroundColor = color;
+      inputs[1].style.backgroundColor = color;
     };
 
     </script>
