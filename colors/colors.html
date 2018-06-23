@@ -75,13 +75,39 @@
     // logic to convert rgb to hex
     const rgbToHex = (rgb) => {
       const rgbRegex = /(?:rgb)?\(?(\d{1,3}), (\d{1,3}), (\d{1,3})\)?$/i.exec(rgb);
-      return rgbRegex ? {
-        hex : "#" + ((1 << 24) + ((+rgbRegex[1]) << 16) + ((+rgbRegex[2]) << 8) + (+rgbRegex[3])).toString(16).slice(1)
-      } : null;
+      if(rgbRegex !== null) {
+        if( ((+rgbRegex[1]) < 256) && ((+rgbRegex[2]) < 256) && ((+rgbRegex[3]) < 256)) {
+          return {
+            hex : "#" + ((1 << 24) + ((+rgbRegex[1]) << 16) + ((+rgbRegex[2]) << 8) + (+rgbRegex[3])).toString(16).slice(1)
+          };
+        } else {
+          return null;
+        }
+      } else {
+        return null;
+      }
     };
 
     const calculateHex = (rgb) => {
-      console.log(rgb);
+      const result = rgbToHex(rgb);
+      // set background and text color
+      if(result !== null) {
+        let inputs = document.querySelectorAll('input');
+        if(tinycolor(result.hex).isLight()) {
+          inputs[0].style.color = '#555';
+          inputs[0].style.borderBottom = '1px dotted #555';
+          inputs[1].style.color = '#555';
+          inputs[1].style.borderBottom = '1px dotted #555';
+        } else {
+          inputs[0].style.color = '#fff';
+          inputs[0].style.borderBottom = '1px dotted #fff';
+          inputs[1].style.color = '#fff';
+          inputs[1].style.borderBottom = '1px dotted #fff';
+        }
+        document.body.style.backgroundColor = result.hex;
+        inputs[0].style.backgroundColor = result.hex;
+        inputs[1].style.backgroundColor = result.hex;
+      }
     };
 
     </script>
